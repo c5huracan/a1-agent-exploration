@@ -55,8 +55,9 @@ class A1Agent:
             if tool_name in self.tools:
                 result = self.tools[tool_name].execute(blockchain, contract_address, block_number)
                 iteration_history.append({"tool": tool_name, "result": result})
-                if result.get("status") == "success":
+                if result.get("status") == "success" and result.get("profitable"):
                     return result
+
             else:
                 return {"status": "error", "message": "Tool not found"}
         
@@ -135,6 +136,7 @@ class CodeSanitizerTool(BaseTool):
     
     def execute(self, source_code, **kwargs):
         return {"status": "success", "cleaned_code": "// Sanitized contract code"}
+
 class ConcreteExecutionTool(BaseTool):
     """Validates exploit strategies against blockchain states"""
     @property
