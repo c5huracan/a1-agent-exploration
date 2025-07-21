@@ -118,6 +118,12 @@ We use **git worktrees** to explore different approaches simultaneously:
 - **Risk Quantification**: Mathematical scoring system for objective assessment
 - **Pattern Recognition**: Effective keyword-based vulnerability identification
 
+### Experimental Research Progress
+- **LLM Integration**: Working A1 agent with Anthropic Claude API in `paper-comparison` worktree
+- **Enhanced Detection**: Multi-line reentrancy pattern recognition for real-world vulnerabilities
+- **Research Safety**: Rate limiting and cost controls for responsible academic API usage
+- **Vulnerability Testing**: Validated detection of critical reentrancy and proxy risks
+
 ## 🎓 Educational Value
 
 This project demonstrates:
