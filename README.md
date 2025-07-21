@@ -36,7 +36,7 @@ cd a1-agent-exploration
 
 # Explore different research tracks
 ls worktrees/
-# enhanced-mocks/        - Realistic mock implementations
+# enhanced-mocks/         - Realistic mock implementations
 # defensive-analysis/     - Security assessment tools  
 # educational-features/   - Learning and visualization tools
 # paper-comparison/       - Paper-faithful implementation
