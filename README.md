@@ -20,11 +20,11 @@ The A1 agent coordinates multiple specialized tools to analyze smart contracts t
 ### Core Architecture
 ```
 A1DefensiveAgent
-├── SourceCodeFetcher      # Retrieves realistic contract examples
+├── SourceCodeFetcher        # Retrieves realistic contract examples
 ├── ConstructorParameterTool # Analyzes deployment security  
-├── StateReaderTool        # Examines contract state & concentration risks
-├── DefensiveAnalysisTool  # Generates security assessments
-└── [Additional Tools]     # Extensible analysis framework
+├── StateReaderTool          # Examines contract state & concentration risks
+├── DefensiveAnalysisTool    # Generates security assessments
+└── [Additional Tools]       # Extensible analysis framework
 ```
 
 ## 🚀 Quick Start
