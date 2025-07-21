@@ -74,16 +74,16 @@ Our defensive analysis successfully identifies:
 ## 📁 Project Structure
 
 ```
-├── README.md                    # This file
+├── README.md                   # This file
 ├── RESEARCH_PLAN.md            # Comprehensive exploration strategy  
 ├── A1_SPEC.md                  # Technical specification & paper comparison
 ├── RESEARCH_NOTES.md           # Research journal & findings
 ├── a1-basic.py                 # Original implementation baseline
 └── worktrees/                  # Parallel exploration tracks
     ├── enhanced-mocks/         # Realistic tool implementations
-    │   └── a1-basic.py        # 50x more educational data
+    │   └── a1-basic.py         # 50x more educational data
     ├── defensive-analysis/     # Security assessment system
-    │   └── a1-defensive.py    # DefensiveAnalysisTool & reporting
+    │   └── a1-defensive.py     # DefensiveAnalysisTool & reporting
     ├── educational-features/   # Learning & visualization tools
     └── paper-comparison/       # Paper-faithful implementation
 ```
