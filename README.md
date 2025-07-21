@@ -31,7 +31,7 @@ A1DefensiveAgent
 
 ```bash
 # Clone the repository
-git clone https://github.com/[your-repo]/a1-agent-exploration
+git clone https://github.com/c5huracan/a1-agent-exploration
 cd a1-agent-exploration
 
 # Explore different research tracks
@@ -66,7 +66,7 @@ Our defensive analysis successfully identifies:
   - Concentration risk analysis
 
 ### Educational Impact
-- **100x more realistic** than basic mock implementations
+- **More realistic** than the initial basic mock implementations
 - **Pattern-based learning** with real vulnerability examples
 - **Actionable recommendations** for developers
 - **Ethical approach** focused on defense, not exploitation
