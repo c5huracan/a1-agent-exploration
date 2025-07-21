@@ -150,4 +150,6 @@ This research project welcomes contributions focused on:
 
 ## 📄 License
 
-This educational research project is open source. Please ensure any contributions maintain the defensive security focus and ethical guidelines.
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+Please ensure any contributions maintain the defensive security focus and ethical guidelines outlined in this research.
