@@ -75,17 +75,19 @@ Our defensive analysis successfully identifies:
 
 ```
 ├── README.md                   # This file
+├── LICENSE                     # MIT License
 ├── RESEARCH_PLAN.md            # Comprehensive exploration strategy  
 ├── A1_SPEC.md                  # Technical specification & paper comparison
 ├── RESEARCH_NOTES.md           # Research journal & findings
 ├── a1-basic.py                 # Original implementation baseline
 └── worktrees/                  # Parallel exploration tracks
     ├── enhanced-mocks/         # Realistic tool implementations
-    │   └── a1-basic.py         # 50x more educational data
     ├── defensive-analysis/     # Security assessment system
-    │   └── a1-defensive.py     # DefensiveAnalysisTool & reporting
     ├── educational-features/   # Learning & visualization tools
-    └── paper-comparison/       # Paper-faithful implementation
+    └── paper-comparison/       # LLM integration & vulnerability testing
+        ├── a1_agent.py         # Core A1 implementation with Claude API
+        ├── requirements.txt    # API dependencies
+        └── test-vulnerable-contracts.py  # Comprehensive testing
 ```
 
 ## 🔬 Research Methodology
@@ -100,7 +102,8 @@ We use **git worktrees** to explore different approaches simultaneously:
 
 ### Key Innovations
 - **Ethical Adaptation**: Transform offensive methodology for defensive purposes
-- **Educational Realism**: 100x improvement in educational value through realistic examples
+- **Educational Realism**: Significantly enhanced educational value through realistic contract examples
+- **LLM Integration**: Working implementation with real AI decision-making capabilities
 - **Comprehensive Analysis**: Multi-layered security assessment (source + state + deployment)
 - **Extensible Framework**: Easy addition of new vulnerability patterns and analysis tools
 
