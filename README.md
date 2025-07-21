@@ -2,7 +2,7 @@
 
 > **Educational exploration of AI-driven smart contract security analysis for defensive research purposes**
 
-This project explores the A1 agent methodology from ["AI Agent Smart Contract Exploit Generation"](https://arxiv.org/html/2507.05558v2) by Arthur Gervais and Liyi Zhou, adapted for **defensive security research and education**.
+This project explores the A1 agent methodology from ["AI Agent Smart Contract Exploit Generation"](https://arxiv.org/html/2507.05558v2) by Arthur Gervais and Liyi Zhou (2024), adapted for **defensive security research and education**.
 
 ## 🛡️ Defensive Security Focus
 
