@@ -29,21 +29,38 @@ A1DefensiveAgent
 
 ## 🚀 Quick Start
 
+### Basic Defensive Analysis
 ```bash
 # Clone the repository
 git clone https://github.com/c5huracan/a1-agent-exploration
 cd a1-agent-exploration
 
-# Explore different research tracks
+# Run defensive analysis
+cd worktrees/defensive-analysis
+python3 a1-defensive.py
+```
+
+### LLM Integration (Experimental)
+```bash
+# Set up API key for paper-comparison research
+export A1_RESEARCH_API_KEY=your_anthropic_key  # Get from console.anthropic.com
+
+# Install dependencies and run LLM-powered analysis  
+cd worktrees/paper-comparison
+pip install -r requirements.txt
+python test-vulnerable-contracts.py
+```
+
+**Cost**: ~$0.004 per contract analysis | **Safety**: Rate-limited for research use
+
+### Explore Research Tracks
+```bash
+# Explore different research implementations
 ls worktrees/
 # enhanced-mocks/         - Realistic mock implementations
 # defensive-analysis/     - Security assessment tools  
 # educational-features/   - Learning and visualization tools
-# paper-comparison/       - Paper-faithful implementation
-
-# Run defensive analysis
-cd worktrees/defensive-analysis
-python3 a1-defensive.py
+# paper-comparison/       - LLM integration & vulnerability testing
 ```
 
 ## 📊 Research Results
