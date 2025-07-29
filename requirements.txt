@@ -1,2 +1,3 @@
 aiohttp>=3.9.0
 asyncio-extras>=1.3.0
+dspy-ai>=2.4.0
