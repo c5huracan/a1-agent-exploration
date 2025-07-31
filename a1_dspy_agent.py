@@ -42,7 +42,7 @@ def configure_dspy_lm():
         return claude
         
     else:
-        raise ValueError(f"Unsupported model provider specified in DSPY_MODEL: {model_name}")
+        raise ValueError(f"Unsupported model provider specified in DSPY_MODEL")
 
 @dataclass
 class SecurityAnalysisResult:
@@ -190,8 +190,7 @@ class A1DSPyAgent(dspy.Module):
                     current_findings=str(analysis_state['findings']),
                     tools_used=str(analysis_state['tools_used']),
                     available_tools=available_tools_desc,
-                    iteration_count=iteration,
-                    config={"candidate_count": 1}
+                    iteration_count=iteration
                 )
                 
                 if completion_check.decision.upper() == "COMPLETE":
@@ -203,8 +202,7 @@ class A1DSPyAgent(dspy.Module):
                     contract_address=contract_address,
                     contract_preview=contract_preview,
                     analysis_context=analysis_context,
-                    available_tools=available_tools_desc,
-                    config={"candidate_count": 1}
+                    available_tools=available_tools_desc
                 )
                 
                 selected_tool = tool_selection.selected_tool
@@ -232,8 +230,7 @@ class A1DSPyAgent(dspy.Module):
         final_assessment = self.vulnerability_assessor(
             contract_info=f"Contract: {contract_address}",
             tool_results=str(analysis_state['tool_results']),
-            vulnerability_findings=str(analysis_state['findings']),
-            config={"candidate_count": 1}
+            vulnerability_findings=str(analysis_state['findings'])
         )
         
         return SecurityAnalysisResult(

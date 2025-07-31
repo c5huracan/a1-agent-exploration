@@ -4,7 +4,7 @@ Test A1 DSPy Agent with Real Vulnerability Examples
 """
 import os
 import asyncio
-from a1_dspy_agent import configure_dspy_claude, A1DSPyAgent, create_training_examples, a1_security_metric
+from a1_dspy_agent import configure_dspy_lm, A1DSPyAgent, create_training_examples, a1_security_metric
 
 # Test contracts from paper-comparison
 TEST_CONTRACTS = {
@@ -84,9 +84,9 @@ async def test_dspy_agent():
             print("✅ DSPy architecture test: PASSED")
             return
         
-        # Initialize DSPy with Claude
-        print("🔧 Configuring DSPy with Claude...")
-        lm = configure_dspy_claude()
+        # Initialize DSPy with the configured LM
+        print("🔧 Configuring DSPy LM...")
+        lm = configure_dspy_lm()
         
         # Create A1 DSPy Agent
         print("🤖 Initializing A1 DSPy Agent...")
