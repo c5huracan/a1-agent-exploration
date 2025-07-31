@@ -8,25 +8,41 @@ import dspy
 from typing import List, Dict, Any, Optional
 from dataclasses import dataclass
 
-# Configure DSPy with Claude
-def configure_dspy_claude():
-    """Configure DSPy to use Claude API"""
-    api_key = os.getenv('A1_RESEARCH_API_KEY') or os.getenv('ANTHROPIC_API_KEY')
-    if not api_key:
-        raise ValueError("API key required for DSPy-Claude integration")
-    
-    # Set Anthropic API key for LiteLLM
-    os.environ['ANTHROPIC_API_KEY'] = api_key
-    
-    # Configure DSPy with Claude using LiteLLM format
-    lm = dspy.LM(
-        model="anthropic/claude-3-5-haiku-20241022",
-        model_type="chat",
-        temperature=0.0,
-        max_tokens=1000
-    )
-    dspy.configure(lm=lm)
-    return lm
+# Configure DSPy with a supported Language Model
+def configure_dspy_lm():
+    """Configure DSPy to use a supported LLM based on environment variables."""
+    model_name = os.getenv("DSPY_MODEL", "claude").lower()
+
+    if "gemini" in model_name:
+        api_key = os.getenv("GEMINI_API_KEY")
+        if not api_key:
+            raise ValueError("GEMINI_API_KEY environment variable is required for Gemini.")
+        
+        print("✅ Configuring DSPy with Google Gemini (gemini-1.5-flash-latest)...")
+        gemini = dspy.LM(model="gemini/gemini-1.5-flash-latest", api_key=api_key, candidate_count=1)
+        dspy.configure(lm=gemini)
+        return gemini
+
+    elif "claude" in model_name:
+        api_key = os.getenv('A1_RESEARCH_API_KEY') or os.getenv('ANTHROPIC_API_KEY')
+        if not api_key:
+            raise ValueError("ANTHROPIC_API_KEY or A1_RESEARCH_API_KEY is required for Claude.")
+        
+        print("✅ Configuring DSPy with Anthropic Claude...")
+        os.environ['ANTHROPIC_API_KEY'] = api_key
+        
+        claude = dspy.LM(
+            model="anthropic/claude-3-5-haiku-20241022",
+            model_type="chat",
+            temperature=0.0,
+            max_tokens=1000,
+            litellm_kwargs={"drop_params": True}
+        )
+        dspy.configure(lm=claude)
+        return claude
+        
+    else:
+        raise ValueError(f"Unsupported model provider specified in DSPY_MODEL: {model_name}")
 
 @dataclass
 class SecurityAnalysisResult:
@@ -174,7 +190,8 @@ class A1DSPyAgent(dspy.Module):
                     current_findings=str(analysis_state['findings']),
                     tools_used=str(analysis_state['tools_used']),
                     available_tools=available_tools_desc,
-                    iteration_count=iteration
+                    iteration_count=iteration,
+                    config={"candidate_count": 1}
                 )
                 
                 if completion_check.decision.upper() == "COMPLETE":
@@ -186,7 +203,8 @@ class A1DSPyAgent(dspy.Module):
                     contract_address=contract_address,
                     contract_preview=contract_preview,
                     analysis_context=analysis_context,
-                    available_tools=available_tools_desc
+                    available_tools=available_tools_desc,
+                    config={"candidate_count": 1}
                 )
                 
                 selected_tool = tool_selection.selected_tool
@@ -214,7 +232,8 @@ class A1DSPyAgent(dspy.Module):
         final_assessment = self.vulnerability_assessor(
             contract_info=f"Contract: {contract_address}",
             tool_results=str(analysis_state['tool_results']),
-            vulnerability_findings=str(analysis_state['findings'])
+            vulnerability_findings=str(analysis_state['findings']),
+            config={"candidate_count": 1}
         )
         
         return SecurityAnalysisResult(

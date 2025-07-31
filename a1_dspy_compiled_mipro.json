@@ -1,0 +1,130 @@
+{
+  "tool_selector.tool_selector.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "You are a cybersecurity expert specializing in smart contract security.  Given a description of a smart contract and its intended use, recommend the most appropriate security analysis tool(s) for identifying potential vulnerabilities.  Justify your selection based on the contract's specific characteristics and the strengths of the recommended tool(s).  Consider factors like the contract's complexity, the types of vulnerabilities it might be susceptible to, and the tool's ability to detect those vulnerabilities efficiently and accurately.  Prioritize tools that provide comprehensive analyses and actionable insights.  If multiple tools are appropriate, rank them by priority and explain the rationale for the ranking.",
+      "fields": [
+        {
+          "prefix": "Contract Address:",
+          "description": "Contract address being analyzed"
+        },
+        {
+          "prefix": "Contract Preview:",
+          "description": "Preview of contract source code"
+        },
+        {
+          "prefix": "Analysis Context:",
+          "description": "Current analysis state and previous findings"
+        },
+        {
+          "prefix": "Available Tools:",
+          "description": "Available analysis tools and their capabilities"
+        },
+        {
+          "prefix": "Reasoning:",
+          "description": "Reasoning for tool selection decision"
+        },
+        {
+          "prefix": "Selected Tool:",
+          "description": "Name of the selected analysis tool"
+        },
+        {
+          "prefix": "Optimal Security Analysis Tool Recommendation:",
+          "description": "Confidence in tool choice (0.0-1.0)"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "vulnerability_assessor.assessor.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Assess vulnerabilities and calculate risk score from tool results",
+      "fields": [
+        {
+          "prefix": "Contract Info:",
+          "description": "Contract address and basic information"
+        },
+        {
+          "prefix": "Tool Results:",
+          "description": "Results from all executed analysis tools"
+        },
+        {
+          "prefix": "Vulnerability Findings:",
+          "description": "Raw vulnerability data from tools"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Risk Assessment:",
+          "description": "Comprehensive security risk assessment"
+        },
+        {
+          "prefix": "Risk Score:",
+          "description": "Numerical risk score (0.0-10.0)"
+        },
+        {
+          "prefix": "Critical Issues:",
+          "description": "List of critical security issues found"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "analysis_controller.controller.predict": {
+    "traces": [],
+    "train": [],
+    "demos": [],
+    "signature": {
+      "instructions": "Determine if analysis is complete or needs additional tools",
+      "fields": [
+        {
+          "prefix": "Current Findings:",
+          "description": "Current vulnerability findings and analysis results"
+        },
+        {
+          "prefix": "Tools Used:",
+          "description": "List of analysis tools already executed"
+        },
+        {
+          "prefix": "Available Tools:",
+          "description": "Remaining available tools"
+        },
+        {
+          "prefix": "Iteration Count:",
+          "description": "Current iteration number"
+        },
+        {
+          "prefix": "Reasoning: Let's think step by step in order to",
+          "description": "${reasoning}"
+        },
+        {
+          "prefix": "Decision:",
+          "description": "CONTINUE or COMPLETE analysis"
+        },
+        {
+          "prefix": "Next Tool Suggestion:",
+          "description": "Suggested next tool if continuing"
+        },
+        {
+          "prefix": "Rationale:",
+          "description": "Reasoning for completion decision"
+        }
+      ]
+    },
+    "lm": null
+  },
+  "metadata": {
+    "dependency_versions": {
+      "python": "3.12",
+      "dspy": "2.6.27",
+      "cloudpickle": "3.1"
+    }
+  }
+}
